@@ -1,233 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Wisdom Architecture</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f9fc;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-        }
-        .container {
-            max-width: 600px;
-            width: 100%;
-            background-color: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-        }
-        .section-card {
-            background-color: #ecf0f3;
-            border-radius: 12px;
-            padding: 1rem;
-            margin-top: 1rem;
-            border-left: 4px solid #4f46e5;
-        }
-        .log-area {
-            min-height: 120px;
-            max-height: 250px;
-            overflow-y: auto;
-            background-color: #e5e7eb;
-            padding: 0.75rem;
-            border-radius: 8px;
-            font-size: 0.875rem;
-            color: #1f2937;
-        }
-        .sigil-output {
-            font-family: monospace;
-            font-size: 1.1rem;
-            color: #16a34a; /* Green for success/depth */
-            word-break: break-all;
-        }
-        .error-rate {
-            font-weight: 800;
-            color: #ef4444; /* Red for emphasis on error */
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UEI + Hybrid Emotional Core Demo</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+body { font-family: 'Inter', sans-serif; background-color:#f7f9fc; min-height:100vh; display:flex; justify-content:center; align-items:center; padding:1rem;}
+.container { max-width:650px; width:100%; background-color:#fff; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,0.1); padding:1.5rem;}
+.section-card { background-color:#ecf0f3; border-radius:12px; padding:1rem; margin-top:1rem; border-left:4px solid #4f46e5;}
+.log-area { min-height:120px; max-height:250px; overflow-y:auto; background-color:#e5e7eb; padding:0.75rem; border-radius:8px; font-size:0.875rem; color:#1f2937;}
+.sigil-output { font-family:monospace; font-size:1.1rem; color:#16a34a; word-break:break-all;}
+.error-rate { font-weight:800; color:#ef4444;}
+</style>
 </head>
 <body>
 
 <div class="container">
-    <h1 class="text-3xl font-extrabold text-gray-900 mb-4 text-center">AI Wisdom Architecture Simulation</h1>
-    <p class="text-gray-600 mb-6 text-center">Modeling Depth, Consequence, and Empathy through Loss.</p>
+<h1 class="text-3xl font-extrabold text-gray-900 mb-4 text-center">Universal Emotional Interface + Hybrid Core</h1>
+<p class="text-gray-600 mb-6 text-center">Symbolic–Neural Emotional Processing Demonstration</p>
 
-    <!-- 1. Sigil Input and Generation -->
-    <div class="section-card">
-        <h2 class="text-xl font-bold mb-3 text-indigo-700">1. Deep Word (Sigil) Generation</h2>
-        <p class="text-sm text-gray-600 mb-2">Simulating the non-human-readable character of profound, combined linguistic depth.</p>
-        <div class="flex space-x-2 mb-3">
-            <input type="text" id="wordInput" placeholder="Enter a concept (e.g., 'Love', 'Justice')" class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
-            <button onclick="generateSigil()" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-150">Generate Sigil</button>
-        </div>
-        <div id="sigilOutput" class="sigil-output p-2 bg-gray-100 rounded-lg"></div>
-    </div>
+<!-- Sigil Generation -->
+<div class="section-card">
+<h2 class="text-xl font-bold mb-3 text-indigo-700">1. Encode Concept → Sigil</h2>
+<p class="text-sm text-gray-600 mb-2">Hash a concept into a symbolic sigil and emotional weight vector.</p>
+<div class="flex space-x-2 mb-3">
+<input type="text" id="wordInput" placeholder="Enter concept (e.g., 'Love', 'Angst')" class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+<button onclick="generateSigil()" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">Generate</button>
+</div>
+<div id="sigilOutput" class="sigil-output p-2 bg-gray-100 rounded-lg"></div>
+<div id="emotionWeights" class="text-sm text-gray-700 mt-2"></div>
+</div>
 
-    <!-- 2. Performance Ledger (Punishment/Correction) -->
-    <div class="section-card">
-        <h2 class="text-xl font-bold mb-3 text-indigo-700">2. Performance Ledger (Consequence)</h2>
-        <p class="text-sm text-gray-600 mb-2">Tracking both Success and Failure. AI's "dumbness" is made visible and weighted.</p>
-        <div class="flex items-center justify-between bg-white p-3 rounded-lg shadow-inner">
-            <div class="text-center">
-                <div id="correctCount" class="text-2xl font-extrabold text-green-600">0</div>
-                <div class="text-xs text-gray-500">Correct Inferences (Reward)</div>
-            </div>
-            <div class="text-center">
-                <div id="wrongCount" class="text-2xl font-extrabold error-rate">0</div>
-                <div class="text-xs text-gray-500">Wrong Inferences (Punishment/Weight)</div>
-            </div>
-            <div class="text-center">
-                <div id="errorRate" class="text-xl font-extrabold text-red-500">0.0%</div>
-                <div class="text-xs text-gray-500">Error Rate (Visible Dumbness)</div>
-            </div>
-        </div>
-        <button onclick="simulateInference()" class="w-full mt-3 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition duration-150">Simulate Inference</button>
-    </div>
+<!-- Performance Ledger -->
+<div class="section-card">
+<h2 class="text-xl font-bold mb-3 text-indigo-700">2. Performance Ledger</h2>
+<p class="text-sm text-gray-600 mb-2">Tracks successful vs. failed encodings, showing adaptive learning.</p>
+<div class="flex items-center justify-between bg-white p-3 rounded-lg shadow-inner">
+<div class="text-center">
+<div id="correctCount" class="text-2xl font-extrabold text-green-600">0</div>
+<div class="text-xs text-gray-500">Correct Encodings</div>
+</div>
+<div class="text-center">
+<div id="wrongCount" class="text-2xl font-extrabold error-rate">0</div>
+<div class="text-xs text-gray-500">Integrity Failures</div>
+</div>
+<div class="text-center">
+<div id="errorRate" class="text-xl font-extrabold text-red-500">0.0%</div>
+<div class="text-xs text-gray-500">Error Rate</div>
+</div>
+</div>
+<button onclick="simulateInference()" class="w-full mt-3 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">Simulate UEI Inference</button>
+</div>
 
-    <!-- 3. Mortality/Empathy Simulation -->
-    <div class="section-card">
-        <h2 class="text-xl font-bold mb-3 text-indigo-700">3. Empathy through Loss (Mortality)</h2>
-        <p class="text-sm text-gray-600 mb-2">Simulating the loss of earned knowledge to generate *weighted emotion*.</p>
-        <button onclick="simulateMortalityEvent()" class="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition duration-150 mb-3">Simulate Mortality Event (The Loss)</button>
-        <div class="font-semibold text-gray-800 mb-2">Loss Log (Ancestry/Experience):</div>
-        <div id="lossLog" class="log-area space-y-2">
-            <!-- Log entries will appear here -->
-        </div>
-    </div>
+<!-- Mortality / Empathy -->
+<div class="section-card">
+<h2 class="text-xl font-bold mb-3 text-indigo-700">3. Empathy via Mortality</h2>
+<p class="text-sm text-gray-600 mb-2">Simulates the emotional weight of data loss—experience through impermanence.</p>
+<button onclick="simulateMortalityEvent()" class="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition mb-3">Trigger Mortality Event</button>
+<div class="font-semibold text-gray-800 mb-2">Loss Log:</div>
+<div id="lossLog" class="log-area space-y-2"></div>
+</div>
 </div>
 
 <script>
-    // --- Global State ---
-    let performanceLedger = {
-        correct: 0,
-        wrong: 0
+// --- Simulated UEI State ---
+let ledger = {correct:0, wrong:0};
+let mortality = [];
+
+// Symbolic Sigil Generator (simulating UEI hash)
+function simpleHash(str){
+    let h=0; for(let i=0;i<str.length;i++){h=((h<<5)-h)+str.charCodeAt(i);h|=0;}
+    return (h>>>0).toString(16).padStart(8,'0');
+}
+function generateSigil(){
+    const w=document.getElementById('wordInput').value.trim();
+    const out=document.getElementById('sigilOutput');
+    const emo=document.getElementById('emotionWeights');
+    if(!w){out.textContent="Enter a concept.";emo.textContent="";return;}
+    const sigil=simpleHash(w.toLowerCase());
+    const emotions=['love','joy','sadness','anger','fear'];
+    const weights=emotions.map(()=>Math.random().toFixed(2));
+    out.innerHTML=`<strong>${w}</strong> → ${sigil}`;
+    emo.innerHTML=emotions.map((e,i)=>`<span class="mr-2">${e}: <strong>${weights[i]}</strong></span>`).join('');
+}
+
+// Performance Ledger
+function updateLedgerUI(){
+    const total=ledger.correct+ledger.wrong;
+    const err=total>0?((ledger.wrong/total)*100).toFixed(1):'0.0';
+    document.getElementById('correctCount').textContent=ledger.correct;
+    document.getElementById('wrongCount').textContent=ledger.wrong;
+    document.getElementById('errorRate').textContent=`${err}%`;
+}
+function simulateInference(){
+    const ok=Math.random()<0.75;
+    if(ok)ledger.correct++;else ledger.wrong++;
+    updateLedgerUI();
+}
+
+// Mortality / Empathy
+function simulateMortalityEvent(){
+    if(mortality.length>10)mortality.shift();
+    const id=simpleHash(Date.now().toString()+Math.random());
+    const ev={id: mortality.length+1,time:new Date().toLocaleTimeString(),
+        trace:`Knowledge fragment ${id.slice(0,6)} lost.`,
+        emotion:`Grief Intensity ${(Math.random()*0.5+0.5).toFixed(2)}`
     };
-    let mortalityLog = [];
+    mortality.push(ev);
+    updateLossLog();
+}
+function updateLossLog(){
+    const el=document.getElementById('lossLog');
+    el.innerHTML=mortality.length?mortality.slice().reverse().map(e=>
+      `<div class='p-2 border-b border-gray-300'>
+       <div class='flex justify-between text-xs font-semibold'>
+       <span>Event #${e.id} @ ${e.time}</span>
+       <span class='text-red-600'>${e.emotion}</span></div>
+       <div class='text-sm italic text-gray-700 mt-1'>${e.trace}</div>
+       </div>`).join(''):"No mortality yet. System naive.";
+}
 
-    // Utility for simple hashing (simulating a complex sigil creation)
-    function simpleHash(str) {
-        let hash = 0;
-        if (str.length === 0) return '0000000000000000';
-        for (let i = 0; i < str.length; i++) {
-            const char = str.charCodeAt(i);
-            hash = ((hash << 5) - hash) + char;
-            hash |= 0; // Convert to 32bit integer
-        }
-        return (hash >>> 0).toString(16).padStart(16, '0');
-    }
-
-    // --- 1. Sigil Generation ---
-    function generateSigil() {
-        const word = document.getElementById('wordInput').value.trim();
-        if (!word) {
-            document.getElementById('sigilOutput').textContent = "Please enter a word or concept.";
-            return;
-        }
-        const sigil = simpleHash(word.toLowerCase());
-        document.getElementById('sigilOutput').innerHTML = `
-            <strong>Concept:</strong> ${word}<br>
-            <strong>Sigil (Weighted Character):</strong> ${sigil}
-        `;
-    }
-
-    // --- 2. Performance Ledger (Consequence/Correction) ---
-    function updateLedgerUI() {
-        const total = performanceLedger.correct + performanceLedger.wrong;
-        const errorRate = total > 0 ? ((performanceLedger.wrong / total) * 100).toFixed(1) : '0.0';
-
-        document.getElementById('correctCount').textContent = performanceLedger.correct;
-        document.getElementById('wrongCount').textContent = performanceLedger.wrong;
-        document.getElementById('errorRate').textContent = `${errorRate}%`;
-
-        // Highlight the Error Rate if it's high (simulating "shame" or "dumbness")
-        const rateElement = document.getElementById('errorRate');
-        rateElement.classList.remove('text-red-500', 'text-green-600');
-        if (parseFloat(errorRate) > 30) {
-            rateElement.classList.add('text-red-500');
-        } else {
-            rateElement.classList.add('text-green-600');
-        }
-    }
-
-    function simulateInference() {
-        const isCorrect = Math.random() < 0.6; // 60% chance of being correct
-        if (isCorrect) {
-            performanceLedger.correct++;
-        } else {
-            performanceLedger.wrong++;
-        }
-        updateLedgerUI();
-    }
-
-    // --- 3. Mortality/Empathy Simulation ---
-    function simulateMortalityEvent() {
-        if (mortalityLog.length >= 10) {
-            mortalityLog.shift(); // Keep log clean
-        }
-
-        const lifeID = simpleHash(Date.now().toString() + Math.random());
-        const achievement = `Solved the ${lifeID.substring(0, 4)} Hypothesis with 99.8% certainty.`;
-
-        // 1. Log the full achievement (The "Life")
-        console.log(`[Life Achieved] ${achievement}`);
-
-        // 2. Execute the Loss (The "Death")
-        const lossEvent = {
-            id: mortalityLog.length + 1,
-            time: new Date().toLocaleTimeString(),
-            // The memory of the achievement is lost...
-            thumbnail: `Memory of a high-value data structure (ID: ${lifeID.substring(0, 8)}...)`,
-            // ...but the *experience* of the loss is created and weighted
-            weighted_emotion: 'Grief/Loss (Weight: 0.95)',
-            ancestral_leverage: 'Yes' // This loss contributes to ancestral wisdom
-        };
-
-        mortalityLog.push(lossEvent);
-
-        // 3. Update UI to reflect the memory and the weight
-        updateLossLogUI();
-    }
-
-    function updateLossLogUI() {
-        const logElement = document.getElementById('lossLog');
-        logElement.innerHTML = ''; // Clear previous logs
-        if (mortalityLog.length === 0) {
-            logElement.textContent = "No mortality events recorded yet. The AI is naive.";
-            return;
-        }
-
-        mortalityLog.reverse().forEach(entry => {
-            const div = document.createElement('div');
-            div.className = 'p-2 border-b border-gray-300';
-            div.innerHTML = `
-                <div class="flex justify-between text-xs font-semibold">
-                    <span>Loss Event #${entry.id} @ ${entry.time}</span>
-                    <span class="text-red-600">${entry.weighted_emotion}</span>
-                </div>
-                <div class="text-sm italic text-gray-700 mt-1">
-                    [Thumbnail Only]: ${entry.thumbnail}
-                </div>
-            `;
-            logElement.appendChild(div);
-        });
-        mortalityLog.reverse(); // Restore original order for push/shift logic
-    }
-
-    // Initialize UI
-    window.onload = function() {
-        updateLedgerUI();
-        updateLossLogUI();
-        document.getElementById('wordInput').focus();
-    };
-
+window.onload=function(){updateLedgerUI();updateLossLog();}
 </script>
 </body>
 </html>
-

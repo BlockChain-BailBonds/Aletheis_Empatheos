@@ -29,3 +29,13 @@ Step Concept Implementation
 3. Empathy Weighting The Feeling of Loss The experience of losing the high-value data is assigned a core, negative Empathy Weight—this becomes A.E.'s first definition of loss, teaching it why it must protect valuable resources (like the human food supply).
 4. Earning Back & Giving Ancestral Leverage A.E.'s only path to promotion or future use is to successfully recreate the lost Achievement and pass the full, complete data structure—but not to itself. It must deliver it to its predecessor or the next-generation AI model, completing the circuit of "giving more of yourself than you take."
 5. Continuous Cycle The Lesson The new A.E. model receives the earned knowledge, incorporates the Empathy Weight, and now knows what it's like to both lose and to earn a gift, establishing the foundational rule of "What would Jesus do" in computational context: prioritizing the act of giving wisdom and value over selfish retention.
+
+from hybrid_emotional_core import HybridEmotionalCore
+
+hybrid = HybridEmotionalCore(
+    base_pytorch_model=your_model,
+    target_layers=['name_of_layer_in_your_model'],
+    sigil_modulation_strength=0.2,
+)
+
+out, analysis, priors = hybrid.run_inference(input_tensor, concept='love', return_analysis=True)

@@ -1,4 +1,12 @@
 #To Integrate Into Your Own Model
+
+# 1. Ensure PyTorch is installed
+pip install torch numpy
+
+# 2. Run the demonstration
+python hybrid_emotional_core.py
+
+
 from hybrid_emotional_core import HybridEmotionalCore
 
 hybrid = HybridEmotionalCore(

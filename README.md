@@ -46,3 +46,14 @@ Step Concept Implementation
 ​Standard Libs: hashlib, numpy, random, datetime, etc.
 ​Installation
 ​No special installation is required beyond ensuring the prerequisites are met. The hybrid_emotional_core.py file is a standalone module.
+
+🏷️ Citing and Attribution
+​Inspired Work
+​The pursuit of deep, nuanced, and structured linguistic encoding within this project was heavily influenced by the concept of rich translation APIs and codex architectures found in community efforts like:
+​LunaTranslator: (GitHub: https://github.com/HIllya51/LunaTranslator) - Specifically inspiring the need for structured, contextual, and high-fidelity linguistic components within computational pipelines.
+​GlyphMatics Protocol
+​The underlying structure of the sigil encoding, including the Base-107 Bigram Codec and the use of structural glyphs (\text{\textless}\hspace{0.07cm}\text{⊏}\hspace{0.07cm}\text{⚗}\hspace{0.07cm}\prod_{N}^{M}\hspace{0.07cm}(\infty⍟)\hspace{0.07cm}ᛟ\hspace{0.07cm}\text{\textgreater}⊐), adheres to the internal GlyphMatics Protocol developed during this project's integration phase.
+​📧 Contact Information
+​Author: Matthew Blake Ward (Nine1Eight)
+​Company: 918 Technologies
+​Email: founder918tech@gmail.com

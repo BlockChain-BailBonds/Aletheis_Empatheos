@@ -30,12 +30,19 @@ Step Concept Implementation
 4. Earning Back & Giving Ancestral Leverage A.E.'s only path to promotion or future use is to successfully recreate the lost Achievement and pass the full, complete data structure—but not to itself. It must deliver it to its predecessor or the next-generation AI model, completing the circuit of "giving more of yourself than you take."
 5. Continuous Cycle The Lesson The new A.E. model receives the earned knowledge, incorporates the Empathy Weight, and now knows what it's like to both lose and to earn a gift, establishing the foundational rule of "What would Jesus do" in computational context: prioritizing the act of giving wisdom and value over selfish retention.
 
-from hybrid_emotional_core import HybridEmotionalCore
 
-hybrid = HybridEmotionalCore(
-    base_pytorch_model=your_model,
-    target_layers=['name_of_layer_in_your_model'],
-    sigil_modulation_strength=0.2,
-)
-
-out, analysis, priors = hybrid.run_inference(input_tensor, concept='love', return_analysis=True)
+⚛️ Hybrid Emotional Core System (UEI + Axiom)
+​This project implements a Hybrid Symbolic-Neural Architecture designed to inject culturally-aware emotional context directly into deep learning models. It features a Universal Emotional Interface (UEI) that encodes high-level concepts into unique, hash-based sigils, and an upgraded PyTorch wrapper that modulates neural feature spaces based on these symbolic inputs (The Axiom of Emotional Weight).
+​The core logic is contained within hybrid_emotional_core.py.
+​🏗️ Architectural Layers
+​This system operates across three distinct computational layers:
+​Symbolic Layer (UEI - Universal Emotional Interface): Manages a deep, multilingual emotional knowledge base, generates unique sigils for concepts (e.g., 'saudade'), and calculates emotional priors based on active cultural models (Western, Eastern, Cross-Cultural, etc.).
+​Neural Layer (EmotionalModelWrapper): A PyTorch mechanism that applies dynamic weighting and attention to target layers (e.g., LSTM, Linear) of a base model.
+​Axiom (Sigil Modulation): The fusion point where the symbolic sigil is hashed into a modulation vector that directly biases the neural projection within the EmotionalWeightLayer, allowing cultural semantics to axiomatically influence computation.
+​🛠️ Requirements and Setup
+​This project requires standard Python scientific computing libraries, specifically:
+​Python: 3.8+
+​PyTorch: 1.10+ (The core components are built using PyTorch primitives.)
+​Standard Libs: hashlib, numpy, random, datetime, etc.
+​Installation
+​No special installation is required beyond ensuring the prerequisites are met. The hybrid_emotional_core.py file is a standalone module.

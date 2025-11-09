@@ -1,0 +1,1354 @@
+{
+  "Energy": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Time": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Space": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Matter": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Light": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Shadow": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Sound": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Motion": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Force": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Gravity": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Power": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Speed": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Balance": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Direction": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Dimension": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Mass": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Density": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Volume": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Pressure": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Temperature": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Water": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Fire": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Earth": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Air": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Metal": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Wood": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Stone": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Sand": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Rain": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Wind": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Ocean": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "River": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Mountain": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Forest": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Desert": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Storm": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Cloud": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Ice": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Flame": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Leaf": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Life": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Death": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Birth": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Growth": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Decay": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Evolution": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Species": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Animal": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Plant": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Cell": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Blood": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Heart": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Brain": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Nerve": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Bone": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Skin": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Seed": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Root": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Flower": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Fruit": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Consciousness": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Awareness": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Perception": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Memory": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Thought": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Idea": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Emotion": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Intuition": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Dream": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Imagination": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Knowledge": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Wisdom": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Belief": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Truth": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Logic": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Reason": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Doubt": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Desire": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Fear": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Hope": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Person": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Body": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Soul": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Spirit": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Mind": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Self": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Identity": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Voice": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Language": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Culture": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Family": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Friend": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Love": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Hate": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Peace": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "War": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Freedom": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Justice": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Faith": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Tradition": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "City": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Village": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Nation": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "World": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Government": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Law": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Economy": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Trade": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Wealth": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Poverty": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Work": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Labor": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Job": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Education": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "School": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Science": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Art": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Music": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Religion": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Technology": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Joy": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Sadness": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Anger": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Disgust": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Surprise": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Compassion": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Pride": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Shame": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Guilt": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Trust": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Curiosity": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Envy": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Jealousy": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Calm": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Excitement": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Empathy": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Gratitude": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Machine": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Tool": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Engine": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Computer": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Network": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Robot": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Code": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Signal": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Data": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Information": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "System": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Device": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Sensor": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Battery": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Circuit": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Algorithm": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Program": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Storage": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Processor": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Being": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Existence": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Reality": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Substance": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Form": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Essence": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Cause": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Effect": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Purpose": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Meaning": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Determinism": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Morality": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Good": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Evil": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Virtue": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Vice": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Beauty": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Atom": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Molecule": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Element": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Compound": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Reaction": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Experiment": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Theory": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Observation": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Measurement": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Equation": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Field": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Wave": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Quantum": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Particle": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Relativity": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "SpaceTime": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Entropy": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Order": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Chaos": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Fractal": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Universe": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Galaxy": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Star": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Planet": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Moon": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Sun": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Comet": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Asteroid": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Orbit": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "BlackHole": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "LightYear": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Cosmos": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Nebula": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Expansion": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Singularity": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Void": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Eclipse": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Radiation": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Number": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Zero": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "One": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Infinity": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Function": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Variable": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Constant": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Ratio": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Fraction": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Sum": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Difference": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Product": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Quotient": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Prime": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Factor": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Geometry": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Probability": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Proof": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Argument": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Inference": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Deduction": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Induction": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Contradiction": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Paradox": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Axiom": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Rule": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Pattern": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Structure": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Relation": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Condition": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Outcome": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Conclusion": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Color": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Shape": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Line": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Texture": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Rhythm": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Harmony": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Contrast": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Composition": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Design": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Painting": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Drawing": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Sculpture": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Poetry": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Dance": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Theater": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Story": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Symbol": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Image": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Word": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Sentence": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Grammar": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Syntax": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Translation": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Speech": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Writing": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Alphabet": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Name": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Title": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Question": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Answer": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Message": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Text": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Sign": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Honor": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Duty": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Integrity": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Respect": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Responsibility": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Loyalty": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Courage": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Charity": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Forgiveness": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Tolerance": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Equality": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Hydrogen": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Oxygen": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Carbon": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Iron": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Gold": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Silver": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Copper": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Nitrogen": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Helium": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Uranium": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Sodium": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Chlorine": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Silicon": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Calcium": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Sulfur": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Mercury": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Lead": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Zinc": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Phosphorus": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Potassium": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Concept": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Process": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Cycle": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Change": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Stability": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Unity": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Diversity": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Connection": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Boundary": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Limit": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Continuity": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "AI": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Drone": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Cybernetics": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Nanotech": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Genetics": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Virtual": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Simulation": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Augmented": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Blockchain": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Automation": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Biotech": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Fusion": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Colony": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Terraforming": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Posthuman": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Glyph": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Sigil": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Recursion": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Reflection": {
+    "languages": {},
+    "rehydration_sigil": null
+  },
+  "Origin": {
+    "languages": {},
+    "rehydration_sigil": null
+  }
+}

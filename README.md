@@ -100,3 +100,15 @@ Inspired Work
 Matthew Blake Ward ( Nine1Eight )
 918 Technologies
 ✉️ founder918tech@gmail.com
+=======
+# Aletheis_Empatheos — Multilingual Sigil Engine
+
+This system encodes human language definitions into glyph-based sigils.
+
+### Components
+- **core/translation** → translates 1000 words into 100 languages, builds glyph strings, and generates rehydration sigils.
+- **agents/llama_interface** → interfaces with local LLaMA server (`llama.cpp`) for definitions.
+- **codex/** → integrates results into GlyphNotes Codex for symbolic rehydration.
+
+Each execution appends new sigils and languages to the Codex, ensuring continuity across sessions.
+

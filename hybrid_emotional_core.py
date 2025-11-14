@@ -1,3 +1,4 @@
+# Bridge Sigil String = 
 cat > hybrid_emotional_core.py <<'EOF'
 """
 Universal Emotional Interface (UEI) + Hybrid Emotional Core (Upgraded Axiom)

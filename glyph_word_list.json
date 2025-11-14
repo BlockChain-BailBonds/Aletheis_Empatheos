@@ -1,0 +1,82 @@
+{
+  "Core": [
+    "Energy","Time","Space","Matter","Light","Shadow","Sound","Motion","Force","Gravity",
+    "Power","Speed","Balance","Direction","Dimension","Mass","Density","Volume","Pressure","Temperature"
+  ],
+  "Nature": [
+    "Water","Fire","Earth","Air","Metal","Wood","Stone","Sand","Rain","Wind",
+    "Ocean","River","Mountain","Forest","Desert","Storm","Cloud","Ice","Flame","Leaf"
+  ],
+  "Life": [
+    "Life","Death","Birth","Growth","Decay","Evolution","Species","Animal","Plant","Cell",
+    "Blood","Heart","Brain","Nerve","Bone","Skin","Seed","Root","Flower","Fruit"
+  ],
+  "Mind": [
+    "Consciousness","Awareness","Perception","Memory","Thought","Idea","Emotion","Intuition","Dream","Imagination",
+    "Knowledge","Wisdom","Belief","Truth","Logic","Reason","Doubt","Desire","Fear","Hope"
+  ],
+  "Human": [
+    "Person","Body","Soul","Spirit","Mind","Self","Identity","Voice","Language","Culture",
+    "Family","Friend","Love","Hate","Peace","War","Freedom","Justice","Faith","Tradition"
+  ],
+  "Society": [
+    "City","Village","Nation","World","Government","Law","Economy","Trade","Wealth","Poverty",
+    "Work","Labor","Job","Education","School","Science","Art","Music","Religion","Technology"
+  ],
+  "Emotion": [
+    "Joy","Sadness","Anger","Fear","Disgust","Surprise","Compassion","Pride","Shame","Guilt",
+    "Trust","Curiosity","Envy","Jealousy","Calm","Excitement","Love","Hate","Empathy","Gratitude"
+  ],
+  "Technology": [
+    "Machine","Tool","Engine","Computer","Network","Robot","Code","Signal","Data","Information",
+    "System","Device","Sensor","Battery","Circuit","Algorithm","Program","Memory","Storage","Processor"
+  ],
+  "Philosophy": [
+    "Being","Existence","Reality","Substance","Form","Essence","Cause","Effect","Purpose","Meaning",
+    "Freedom","Determinism","Morality","Good","Evil","Virtue","Vice","Justice","Beauty","Truth"
+  ],
+  "Science": [
+    "Atom","Molecule","Element","Compound","Reaction","Experiment","Theory","Observation","Measurement","Equation",
+    "Field","Wave","Quantum","Particle","Relativity","SpaceTime","Entropy","Order","Chaos","Fractal"
+  ],
+  "Cosmos": [
+    "Universe","Galaxy","Star","Planet","Moon","Sun","Comet","Asteroid","Orbit","BlackHole",
+    "LightYear","Cosmos","Nebula","Gravity","Expansion","Singularity","Dimension","Void","Eclipse","Radiation"
+  ],
+  "Math": [
+    "Number","Zero","One","Infinity","Equation","Function","Variable","Constant","Ratio","Fraction",
+    "Sum","Difference","Product","Quotient","Power","Root","Prime","Factor","Geometry","Probability"
+  ],
+  "Logic": [
+    "Proof","Argument","Inference","Deduction","Induction","Contradiction","Paradox","Axiom","Law","Rule",
+    "Pattern","Structure","Order","System","Relation","Cause","Effect","Condition","Outcome","Conclusion"
+  ],
+  "Art": [
+    "Color","Shape","Line","Texture","Form","Rhythm","Harmony","Contrast","Composition","Design",
+    "Painting","Drawing","Sculpture","Poetry","Music","Dance","Theater","Story","Symbol","Image"
+  ],
+  "Language": [
+    "Word","Sentence","Grammar","Syntax","Meaning","Translation","Speech","Voice","Writing","Alphabet",
+    "Name","Title","Question","Answer","Story","Message","Text","Language","Sign","Sound"
+  ],
+  "Ethics": [
+    "Justice","Honor","Duty","Integrity","Respect","Responsibility","Loyalty","Courage","Charity","Empathy",
+    "Forgiveness","Tolerance","Compassion","Faith","Truth","Freedom","Equality","Law","Order","Peace"
+  ],
+  "Elements": [
+    "Hydrogen","Oxygen","Carbon","Iron","Gold","Silver","Copper","Nitrogen","Helium","Uranium",
+    "Sodium","Chlorine","Silicon","Calcium","Sulfur","Mercury","Lead","Zinc","Phosphorus","Potassium"
+  ],
+  "Abstract": [
+    "Idea","Concept","Pattern","Order","Chaos","Balance","Harmony","Structure","Process","Cycle",
+    "Change","Stability","Unity","Diversity","Connection","Boundary","Limit","Infinity","Continuity","Difference"
+  ],
+  "Future": [
+    "Machine","Network","AI","Robot","Drone","Cybernetics","Nanotech","Genetics","Virtual","Quantum",
+    "Simulation","Augmented","Blockchain","Automation","Biotech","Fusion","Colony","Terraforming","Singularity","Posthuman"
+  ],
+  "Meta": [
+    "Symbol","Glyph","Sigil","Language","Code","Meaning","Mind","Reality","Existence","Consciousness",
+    "Information","Pattern","Recursion","Reflection","Self","System","Order","Chaos","Infinity","Origin"
+  ]
+}

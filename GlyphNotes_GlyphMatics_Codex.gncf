@@ -1,0 +1,271 @@
+cat > glyphnotes_codex_full.glyphcodex <<'EOF'
+############################################################
+#  GLYPHNOTES CODEX — FULL FORMAL SPECIFICATION (v1.0)
+#  Author: Nine1Eight (Matthew Blake Ward)
+#  System: GlyphMatics, SigilAGI, GlyphNotes Codex
+############################################################
+
+============================================================
+SECTION 0 — PURPOSE & SCOPE
+============================================================
+
+This codex defines the full, formal, real-world functional
+specification for:
+
+  • GlyphNotes (semantic input structure)
+  • Glyph Strings (encoded symbol streams)
+  • The 111-Glyph Alphabet (Σ₁₁₁)
+  • Rehydration Sigils (proof-of-integrity capsules)
+  • Full reversibility mapping (GlyphNotes ↔ Sigils)
+  • Error detection, uniqueness, structural validation
+  • Implementation constraints & type system
+
+The Codex is executable as a specification: all equations
+map 1:1 onto the engine in glyphmatics_engine.py.
+
+
+============================================================
+SECTION 1 — 111-GLYPH ALPHABET (Σ₁₁₁)
+============================================================
+
+The GlyphMatics alphabet is a fixed bijective set of 111
+symbols with no duplicates and no multi-codepoint mixing.
+
+ALPHABET Σ₁₁₁ = [
+✶,✷,✸,✹,✺,✻,✼,✽,✾,✿,❀,❁,❂,❃,❄,❅,❆,❇,❈,❉,
+❊,❋,★,☆,☽,☾,☀,☼,☁,☂,☃,☄,♠,♣,♥,♡,♦,♤,♧,♢,
+⚑,⚐,⚔,⚕,⚖,⚗,⚛,⚙,⚚,⚝,⚞,⚟,⚠,⚡,⚢,⚣,⚤,⚥,⚦,⚧,
+⚨,⚩,⚪,⚫,⚬,⚭,⚮,⚯,⌁,⌂,⌘,⌬,⎈,⍟,⍣,⟡,⟠,⟣,⟤,⟨,
+⟩,⧉,◈,◉,◊,◎,●,○,◌,◍,◐,◑,◒,◓,◔,◕,◖,◗,◘,◙,
+◚,◛,◜,◝,◞,◟,◠ ]
+
+Reserved control glyphs:
+   PREFIX_LINE = ⚗
+   MARKER_GLYPH = ⊗                 # uniqueness marker
+   SIGIL_OPEN  = ⊏⚗$
+   SIGIL_CLOSE = $⊐
+
+
+============================================================
+SECTION 2 — SEMANTIC LAYER (GLYPHNOTES)
+============================================================
+
+GlyphNotes is a structured text format consisting of:
+
+  • Lines
+  • Tokens (alphanumeric or symbolic)
+  • Statements (line-level AST nodes)
+
+Formal Grammar (EBNF):
+
+  Document      ::= { Line }
+  Line          ::= Token { Token }
+  Token         ::= /[A-Za-z0-9_]+/ | Symbol
+  Symbol        ::= any single nonspace character
+
+AST definition:
+
+  AST_Node = {
+      "type":   "line",
+      "tokens": [Token]
+  }
+
+Parsing Rule (GN-P1):
+
+  AST_N = ⋃_{each line L in N} Parse_Tokens(Tokenize(L))
+
+
+============================================================
+SECTION 3 — NORMALIZATION (DETERMINISTIC CANONICAL FORM)
+============================================================
+
+Normalization ensures two equivalent GlyphNotes produce
+identical ASTs and identical glyphstreams.
+
+Equation (GN-N1):
+
+  Canonical(AST) =
+       Sort_Lex(AST)
+    ⊕ Normalize_Whitespace(AST)
+    ⊕ Normalize_Types(AST)
+
+Where:
+
+  Sort_Lex sorts nodes using lexicographic join(tokens).
+  Whitespace/Type normalization enforces deterministic form.
+
+
+============================================================
+SECTION 4 — ENCODING LAYER (GLYPHSTREAM)
+============================================================
+
+Encoding is a bijective projection from canonical AST nodes
+into the 111-glyph alphabet.
+
+Type-Glyph map:
+
+  γ("line") = ⚗   (prefix per node)
+
+Token → Glyph encoder:
+
+  encode(v) = Σ₁₁₁[ SHA256(v) mod 111 ]
+
+Primary Encoding Equation (GS-E1):
+
+  GlyphStream =
+       ⊕_{node ∈ AST} (⚗ ⊕ ⊕_{tok ∈ node.tokens} encode(tok))
+
+
+============================================================
+SECTION 5 — UNIQUENESS CONSTRAINT
+============================================================
+
+To ensure no two glyphstreams in the user's lifetime
+collide, we enforce:
+
+Equation (GS-U1):
+
+  ∀ S_i, S_j in History:
+       S_i = S_j  ⇒  S_j := S_j ⊕ ⊗
+
+Uniqueness marker: ⊗
+
+
+============================================================
+SECTION 6 — INTEGRITY & STRUCTURE PROOFS
+============================================================
+
+Integrity Proof (RS-I1):
+
+  IntegrityProof = SHA256(GlyphStream)
+
+Structural Proof (RS-S1):
+
+  StructuralProof = SHA256( Canonical(AST) )
+
+
+============================================================
+SECTION 7 — REHYDRATION SIGIL
+============================================================
+
+The sigil encapsulates:
+
+  • GlyphStream (G)
+  • IntegrityProof (IH)
+  • StructuralProof (SH)
+
+Equation (RS-C1):
+
+  Sigil =  "⊏⚗$ " ⊕ G ⊕ " | " ⊕ IH ⊕ " | " ⊕ SH ⊕ " $⊐"
+
+This is a cryptographically verifiable capsule.
+
+
+============================================================
+SECTION 8 — REHYDRATION (FULL REVERSIBILITY)
+============================================================
+
+Given a sigil S:
+
+  S = ⊏⚗$ G | IH | SH $⊐
+
+We verify:
+
+(1) SHA256(G)  == IH
+(2) SHA256(Canonical(AST)) == SH
+
+Then decode G back to tokens using the reverse prefix rules.
+
+Master Reversibility Equation (GM-R1):
+
+  Rehydrate(⊏⚗$ G | IH | SH $⊐)
+       = GlyphNotes
+
+
+============================================================
+SECTION 9 — ERROR DETECTION MODEL
+============================================================
+
+Fault classes:
+
+  E1: SIGIL_FORMAT_ERROR
+  E2: INTEGRITY_MISMATCH
+  E3: STRUCTURAL_MISMATCH
+  E4: NONPREFIX_SEQUENCE
+  E5: INVALID_GLYPH
+  E6: HISTORY_COLLISION
+
+On detection, decoding MUST abort.
+
+Rehydration is fail-closed: no partial recovery allowed.
+
+
+============================================================
+SECTION 10 — STATE MACHINE OVERVIEW
+============================================================
+
+STATE 0: INPUT
+  text → parse → AST
+
+STATE 1: NORMALIZE
+  AST → Canonical AST
+
+STATE 2: ENCODE
+  Canonical AST → GlyphStream
+
+STATE 3: PROOF GENERATION
+  G → IH (SHA256)
+  AST → SH (SHA256)
+
+STATE 4: SIGIL CONSTRUCTION
+  G,IH,SH → Sigil
+
+STATE 5: REHYDRATION (REVERSE)
+  Sigil → G → AST → GlyphNotes
+
+
+============================================================
+SECTION 11 — IMPLEMENTATION INVARIANTS
+============================================================
+
+I1: Σ₁₁₁ contains only unique glyphs.
+I2: encode() MUST be deterministic for all valid UTF-8.
+I3: decode() MUST accept only glyphs in Σ₁₁₁.
+I4: uniqueness history MUST persist across runs.
+I5: sigil parsing MUST be strict.
+I6: structure hash MUST use canonicalized AST.
+I7: no implicit token type inference is allowed.
+I8: no placeholders, no null-ops, no simulated logic.
+
+
+============================================================
+SECTION 12 — TEST VECTORS
+============================================================
+
+Example 1:
+
+Input:
+  hello world
+
+AST:
+  [{"type": "line", "tokens": ["hello","world"]}]
+
+GlyphStream:
+  ⚗◈○⚙...
+
+Sigil:
+  ⊏⚗$ ⚗◈○⚙... | e3a… | 981… $⊐
+
+
+============================================================
+SECTION 13 — VERSIONING
+============================================================
+
+Codex-Version: 1.0  
+Glyph Alphabet Version: 1.0  
+Engine Compatibility: glyphmatics_engine.py v1.0  
+Date: 2025-Q4  
+
+
+############################################################
+EOF

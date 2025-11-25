@@ -2,127 +2,902 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>GlyphNotes Rehydration Engine</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UEI + Hybrid Emotional Core Demo</title>
-<script src="https://cdn.tailwindcss.com"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
-body { font-family: 'Inter', sans-serif; background-color:#f7f9fc; min-height:100vh; display:flex; justify-content:center; align-items:center; padding:1rem;}
-.container { max-width:650px; width:100%; background-color:#fff; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,0.1); padding:1.5rem;}
-.section-card { background-color:#ecf0f3; border-radius:12px; padding:1rem; margin-top:1rem; border-left:4px solid #4f46e5;}
-.log-area { min-height:120px; max-height:250px; overflow-y:auto; background-color:#e5e7eb; padding:0.75rem; border-radius:8px; font-size:0.875rem; color:#1f2937;}
-.sigil-output { font-family:monospace; font-size:1.1rem; color:#16a34a; word-break:break-all;}
-.error-rate { font-weight:800; color:#ef4444;}
+body {
+    background: #000;
+    color: #0f0;
+    font-family: 'Inter', monospace;
+    padding: 20px;
+}
+#log {
+    background: #111;
+    border: 1px solid #0f0;
+    padding: 15px;
+    height: 300px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    font-size: 14px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+button {
+    background: #0f0;
+    color: #000;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+button:hover:not(:disabled) {
+    background: #0d0;
+}
+button:disabled {
+    background: #444;
+    color: #222;
+    cursor: not-allowed;
+}
 </style>
 </head>
 <body>
 
-<div class="container">
-<h1 class="text-3xl font-extrabold text-gray-900 mb-4 text-center">Universal Emotional Interface + Hybrid Core</h1>
-<p class="text-gray-600 mb-6 text-center">Symbolic–Neural Emotional Processing Demonstration</p>
-
-<!-- Sigil Generation -->
-<div class="section-card">
-<h2 class="text-xl font-bold mb-3 text-indigo-700">1. Encode Concept → Sigil</h2>
-<p class="text-sm text-gray-600 mb-2">Hash a concept into a symbolic sigil and emotional weight vector.</p>
-<div class="flex space-x-2 mb-3">
-<input type="text" id="wordInput" placeholder="Enter concept (e.g., 'Love', 'Angst')" class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
-<button onclick="generateSigil()" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">Generate</button>
-</div>
-<div id="sigilOutput" class="sigil-output p-2 bg-gray-100 rounded-lg"></div>
-<div id="emotionWeights" class="text-sm text-gray-700 mt-2"></div>
+<h2>GlyphNotes Glyphmatic Rehydration Engine</h2>
+<p>Single-file bootstrap. 100% offline. Full auto-deploy.</p>
+<div class="flex space-x-4">
+    <button id="init">Initialize System</button>
 </div>
 
-<!-- Performance Ledger -->
-<div class="section-card">
-<h2 class="text-xl font-bold mb-3 text-indigo-700">2. Performance Ledger</h2>
-<p class="text-sm text-gray-600 mb-2">Tracks successful vs. failed encodings, showing adaptive learning.</p>
-<div class="flex items-center justify-between bg-white p-3 rounded-lg shadow-inner">
-<div class="text-center">
-<div id="correctCount" class="text-2xl font-extrabold text-green-600">0</div>
-<div class="text-xs text-gray-500">Correct Encodings</div>
-</div>
-<div class="text-center">
-<div id="wrongCount" class="text-2xl font-extrabold error-rate">0</div>
-<div class="text-xs text-gray-500">Integrity Failures</div>
-</div>
-<div class="text-center">
-<div id="errorRate" class="text-xl font-extrabold text-red-500">0.0%</div>
-<div class="text-xs text-gray-500">Error Rate</div>
-</div>
-</div>
-<button onclick="simulateInference()" class="w-full mt-3 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">Simulate UEI Inference</button>
-</div>
-
-<!-- Mortality / Empathy -->
-<div class="section-card">
-<h2 class="text-xl font-bold mb-3 text-indigo-700">3. Empathy via Mortality</h2>
-<p class="text-sm text-gray-600 mb-2">Simulates the emotional weight of data loss—experience through impermanence.</p>
-<button onclick="simulateMortalityEvent()" class="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition mb-3">Trigger Mortality Event</button>
-<div class="font-semibold text-gray-800 mb-2">Loss Log:</div>
-<div id="lossLog" class="log-area space-y-2"></div>
-</div>
-</div>
+<h3>System Log</h3>
+<pre id="log"></pre>
 
 <script>
-// --- Simulated UEI State ---
-let ledger = {correct:0, wrong:0};
-let mortality = [];
-
-// Symbolic Sigil Generator (simulating UEI hash)
-function simpleHash(str){
-    let h=0; for(let i=0;i<str.length;i++){h=((h<<5)-h)+str.charCodeAt(i);h|=0;}
-    return (h>>>0).toString(16).padStart(8,'0');
-}
-function generateSigil(){
-    const w=document.getElementById('wordInput').value.trim();
-    const out=document.getElementById('sigilOutput');
-    const emo=document.getElementById('emotionWeights');
-    if(!w){out.textContent="Enter a concept.";emo.textContent="";return;}
-    const sigil=simpleHash(w.toLowerCase());
-    const emotions=['love','joy','sadness','anger','fear'];
-    const weights=emotions.map(()=>Math.random().toFixed(2));
-    out.innerHTML=`<strong>${w}</strong> → ${sigil}`;
-    emo.innerHTML=emotions.map((e,i)=>`<span class="mr-2">${e}: <strong>${weights[i]}</strong></span>`).join('');
+// ------------------------------------------------------------
+// LOGGING
+// ------------------------------------------------------------
+function log(msg) {
+    const logBox = document.getElementById("log");
+    logBox.textContent += msg + "\n";
+    logBox.scrollTop = logBox.scrollHeight;
 }
 
-// Performance Ledger
-function updateLedgerUI(){
-    const total=ledger.correct+ledger.wrong;
-    const err=total>0?((ledger.wrong/total)*100).toFixed(1):'0.0';
-    document.getElementById('correctCount').textContent=ledger.correct;
-    document.getElementById('wrongCount').textContent=ledger.wrong;
-    document.getElementById('errorRate').textContent=`${err}%`;
-}
-function simulateInference(){
-    const ok=Math.random()<0.75;
-    if(ok)ledger.correct++;else ledger.wrong++;
-    updateLedgerUI();
+// ------------------------------------------------------------
+// CAPABILITY DETECTION
+// ------------------------------------------------------------
+function supportsZeroTouch() {
+    return (
+        typeof window.showDirectoryPicker === "function" &&
+        typeof window.showSaveFilePicker === "function"
+    );
 }
 
-// Mortality / Empathy
-function simulateMortalityEvent(){
-    if(mortality.length>10)mortality.shift();
-    const id=simpleHash(Date.now().toString()+Math.random());
-    const ev={id: mortality.length+1,time:new Date().toLocaleTimeString(),
-        trace:`Knowledge fragment ${id.slice(0,6)} lost.`,
-        emotion:`Grief Intensity ${(Math.random()*0.5+0.5).toFixed(2)}`
-    };
-    mortality.push(ev);
-    updateLossLog();
-}
-function updateLossLog(){
-    const el=document.getElementById('lossLog');
-    el.innerHTML=mortality.length?mortality.slice().reverse().map(e=>
-      `<div class='p-2 border-b border-gray-300'>
-       <div class='flex justify-between text-xs font-semibold'>
-       <span>Event #${e.id} @ ${e.time}</span>
-       <span class='text-red-600'>${e.emotion}</span></div>
-       <div class='text-sm italic text-gray-700 mt-1'>${e.trace}</div>
-       </div>`).join(''):"No mortality yet. System naive.";
+// ------------------------------------------------------------
+// FILESYSTEM WRITE ABSTRACTION (MODE A)
+// ------------------------------------------------------------
+let rootDirHandle = null;
+
+async function selectRootDirectory() {
+    rootDirHandle = await window.showDirectoryPicker();
+    return rootDirHandle;
 }
 
-window.onload=function(){updateLedgerUI();updateLossLog();}
+async function writeFileZeroTouch(path, contents) {
+    const parts = path.split("/");
+    let current = rootDirHandle;
+
+    for (let i = 0; i < parts.length - 1; i++) {
+        const folder = parts[i];
+        let handle;
+        try {
+            handle = await current.getDirectoryHandle(folder, { create: true });
+        } catch (err) {
+            throw new Error("Directory creation failed: " + folder);
+        }
+        current = handle;
+    }
+
+    const fileName = parts[parts.length - 1];
+    const fileHandle = await current.getFileHandle(fileName, { create: true });
+    const writable = await fileHandle.createWritable();
+
+    if (typeof contents === 'string') {
+        await writable.write(contents);
+    } else {
+        await writable.write(contents);
+    }
+    
+    await writable.close();
+    return true;
+}
+
+// ------------------------------------------------------------
+// FALLBACK MODE B
+// ------------------------------------------------------------
+const fallbackFiles = {};
+
+function prepareFallbackFile(path, contents) {
+    if (contents instanceof Uint8Array) {
+        fallbackFiles[path] = contents;
+    } else {
+        fallbackFiles[path] = contents;
+    }
+}
+
+async function downloadFallbackFiles() {
+    for (const [path, contents] of Object.entries(fallbackFiles)) {
+        let blob;
+        let fileContents = contents;
+        let mimeType = "text/plain";
+
+        if (fileContents instanceof Uint8Array) {
+            blob = new Blob([fileContents], { type: "application/octet-stream" });
+            mimeType = "application/octet-stream";
+        } else {
+            blob = new Blob([fileContents], { type: "text/plain" });
+        }
+
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        const filename = path.split('/').pop(); 
+        a.download = filename; 
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        URL.revokeObjectURL(url);
+        log("Generated fallback file: " + path);
+    }
+    log("Fallback Mode B complete. You must manually organize the downloaded files into the 'SigilOS' directory structure.");
+    log("Then, run 'bash setup.sh' after extraction.");
+}
+
+// ------------------------------------------------------------
+// INSTALL MODE SWITCH
+// ------------------------------------------------------------
+async function startInstallation() {
+
+    log("Checking capabilities...");
+
+    if (supportsZeroTouch()) {
+        log("Zero-Touch Mode supported.");
+        log("Requesting filesystem access...");
+        try {
+            await selectRootDirectory();
+            log("Access granted. Proceeding with direct deployment.");
+        } catch (err) {
+            log("Access denied or cancelled. Falling back to Mode B.");
+            return "fallback";
+        }
+        return "zerotouch";
+    } else {
+        log("Zero-Touch Mode NOT supported. Switching to Mode B.");
+        return "fallback";
+    }
+}
 </script>
+
+<script>
+// ============================================================
+// BLOCK 2: 111 ALPHABET
+// ============================================================
+const GLYPH_ALPHABET = {
+    forward: [
+        ["<", ">"], ["=", "="], [">", "<"], ["@", "¬"],
+        ["Γ", "Ω"], ["Δ", "Σ"], ["Λ", "Π"], ["Ξ", "Ξ"],
+        ["Σ", "Δ"], ["Ω", "Γ"], ["Ω", "Γ"], ["Σ", "Δ"], ["Φ", "Φ"],
+        ["α", "ω"], ["β", "ψ"], ["γ", "χ"], ["δ", "φ"], ["ε", "υ"],
+        ["ζ", "τ"], ["η", "σ"], ["θ", "ρ"], ["ι", "π"], ["κ", "ν"],
+        ["λ", "μ"], ["μ", "λ"], ["ν", "κ"], ["π", "ι"], ["ρ", "θ"],
+        ["σ", "η"], ["τ", "ζ"], ["υ", "ε"], ["φ", "δ"], ["χ", "γ"],
+        ["ψ", "β"], ["ω", "α"], ["⇌", "⇔"], ["∂", "∇"], ["∈", "∉"],
+        ["∑", "∘"], ["√", "∞"], ["∧", "∨"], ["≠", "≤"], ["≥", "⊕"],
+        ["⊗", "⋅"], ["⌨", "⏩"], ["⏭", "⏳"], ["□", "◇"], ["♠", "♣"],
+        ["♥", "♦"], ["⚙", "⚙️"], ["⚠", "⚡"], ["✂️", "✏️"], ["✓", "⟂"],
+        ["⟳", "⤴"], ["⧈", "⧉"], ["⧊", "⨉"], ["⬛", "⮕"], ["🌍", "🌐"],
+        ["🌲", "🌳"], ["🎤", "🎧"], ["🎨", "🎮"], ["🎯", "🎰"], ["🎲", "🎵"],
+        ["🎼", "🏁"], ["🏆", "🏋"], ["👍", "👎"], ["💾", "📂"], ["📄", "📈"],
+        ["📉", "📊"], ["📍", "📏"], ["📐", "📑"], ["📖", "📝"], ["📡", "📢"],
+        ["📤", "📥"], ["📦", "🔀"], ["🔁", "🔇"], ["🔊", "🔍"], ["🔎", "🔑"],
+        ["🔒", "🔗"], ["🕒", "🕹"], ["🖌", "🖼"], ["🗑", "🗜"], ["🗝", "🙋"],
+        ["🛠", "🛰"], ["🟦", "🤔"], ["🤖", "🤝"], ["🧠", "🧩"], ["🧮", "🧳"],
+        ["🧵", "↕"]
+    ]
+};
+
+function getSigilBlock(index) {
+    const f = GLYPH_ALPHABET.forward[index];
+    return [
+        [f[0], f[1]],
+        [f[1], f[0]] 
+    ];
+}
+
+log("Alphabet loaded.");
+</script>
+
+<script>
+// ============================================================
+// BLOCK 3: JS EQUATION ENGINE
+// ============================================================
+
+function glyphToIndex(glyph) {
+    for (let i = 0; i < GLYPH_ALPHABET.forward.length; i++) {
+        const pair = GLYPH_ALPHABET.forward[i];
+        if (pair[0] === glyph || pair[1] === glyph) return i;
+    }
+    throw new Error("Unknown glyph: " + glyph);
+}
+
+function encodeToGlyphs(plaintext) {
+    let glyphs = "";
+    const len = GLYPH_ALPHABET.forward.length;
+    for (let i = 0; i < plaintext.length; i++) {
+        const code = plaintext.charCodeAt(i);
+        const index = code % len;
+        const pair = GLYPH_ALPHABET.forward[index];
+        const glyph = pair[(code % 2)];
+        glyphs += glyph;
+    }
+    return glyphs;
+}
+
+function decodeFromGlyphs(glyphString) {
+    let out = "";
+    const len = GLYPH_ALPHABET.forward.length;
+    for (const g of glyphString) {
+        let index;
+        try {
+            index = glyphToIndex(g);
+        } catch {
+            continue;
+        }
+        
+        const pair = GLYPH_ALPHABET.forward[index];
+        const pos = (pair[0] === g) ? 0 : 1; 
+        const code = (index + (pos * len)) % 256; 
+        out += String.fromCharCode(code);
+    }
+    return out;
+}
+
+function glyphEquation(glyphString) {
+    let sum = 0;
+    for (const g of glyphString) {
+        sum += glyphToIndex(g);
+    }
+    const resultIndex = sum % GLYPH_ALPHABET.forward.length;
+    const block = getSigilBlock(resultIndex);
+    return block[0][0];
+}
+
+function integrityVector(glyphString) {
+    let sum = 0;
+    for (const g of glyphString) sum += glyphToIndex(g);
+    const base = sum % GLYPH_ALPHABET.forward.length;
+    const block = getSigilBlock(base);
+    return block.flat().join(""); 
+}
+
+function rehydratePayload(payloadGlyphs, equationGlyph) {
+    const decoded = decodeFromGlyphs(payloadGlyphs);
+    return decoded + equationGlyph;
+}
+
+log("Equation engine loaded.");
+</script>
+
+<script>
+// ============================================================
+// BLOCK 4: AES + GVOLX (with PKCS7 Padding)
+// ============================================================
+
+const encoder = new TextEncoder();
+const decoder = new TextDecoder();
+
+function pkcs7Pad(data) {
+    const blockSize = 16;
+    const padLength = blockSize - (data.length % blockSize);
+    const padded = new Uint8Array(data.length + padLength);
+    padded.set(data);
+    padded.fill(padLength, data.length);
+    return padded;
+}
+
+function pkcs7Unpad(data) {
+    const padLength = data[data.length - 1];
+    return data.slice(0, data.length - padLength);
+}
+
+async function sha256(data) {
+    const hash = await crypto.subtle.digest("SHA-256", data);
+    return new Uint8Array(hash);
+}
+
+async function deriveKeyAndIV(equationGlyph, integrityGlyphs) {
+    const seed = equationGlyph + integrityGlyphs; 
+    const seedBytes = encoder.encode(seed);
+    const hash = await sha256(seedBytes);
+
+    const keyBytes = hash.slice(0, 32);
+    const ivBytes = hash.slice(0, 16);
+
+    const key = await crypto.subtle.importKey(
+        "raw",
+        keyBytes,
+        { name: "AES-CBC" },
+        false,
+        ["encrypt", "decrypt"]
+    );
+
+    return { key, iv: ivBytes };
+}
+
+async function encryptPayload(plaintext, equationGlyph, integrityGlyphs) {
+    const { key, iv } = await deriveKeyAndIV(equationGlyph, integrityGlyphs);
+    const data = encoder.encode(plaintext);
+    const padded = pkcs7Pad(data);
+    const encrypted = await crypto.subtle.encrypt(
+        { name: "AES-CBC", iv },
+        key,
+        padded
+    );
+
+    return new Uint8Array(encrypted);
+}
+
+async function decryptPayload(cipherBytes, equationGlyph, integrityGlyphs) {
+    const { key, iv } = await deriveKeyAndIV(equationGlyph, integrityGlyphs);
+
+    const decrypted = await crypto.subtle.decrypt(
+        { name: "AES-CBC", iv },
+        key,
+        cipherBytes
+    );
+
+    const unpadded = pkcs7Unpad(new Uint8Array(decrypted));
+    return decoder.decode(unpadded);
+}
+
+function buildGvolx(integrityGlyphs, equationGlyph, encryptedBytes) {
+    const MAGIC = encoder.encode("GVX01");
+    const VERSION = new Uint8Array([0x01]);
+    const integrityBytes = encoder.encode(integrityGlyphs);
+    const equationBytes = encoder.encode(equationGlyph);
+    const eqLen = new Uint8Array([equationBytes.length]);
+
+    const payloadLen = new Uint8Array(4);
+    new DataView(payloadLen.buffer).setUint32(0, encryptedBytes.length, false);
+
+    const totalLen =
+        MAGIC.length +
+        VERSION.length +
+        integrityBytes.length +
+        eqLen.length +
+        equationBytes.length +
+        payloadLen.length +
+        encryptedBytes.length;
+
+    const out = new Uint8Array(totalLen);
+    let offset = 0;
+
+    out.set(MAGIC, offset); offset += MAGIC.length;
+    out.set(VERSION, offset); offset += VERSION.length;
+    out.set(integrityBytes, offset); offset += integrityBytes.length;
+    out.set(eqLen, offset); offset += eqLen.length;
+    out.set(equationBytes, offset); offset += equationBytes.length;
+    out.set(payloadLen, offset); offset += payloadLen.length;
+    out.set(encryptedBytes, offset);
+
+    return out;
+}
+
+function parseGvolx(bytes) {
+    const MAGIC = "GVX01";
+    const magicString = decoder.decode(bytes.slice(0, 5));
+    if (magicString !== MAGIC) throw new Error("Invalid GVOLX format");
+
+    const version = bytes[5];
+    if (version !== 0x01) throw new Error("Unsupported version");
+
+    const integrityGlyphs = decoder.decode(bytes.slice(6, 10)); 
+    const eqLen = bytes[10];
+    const equationGlyph = decoder.decode(bytes.slice(11, 11 + eqLen)); 
+
+    const payloadLenOffset = 11 + eqLen;
+    const payloadLenBytes = bytes.slice(payloadLenOffset, payloadLenOffset + 4);
+
+    const payloadLen = new DataView(payloadLenBytes.buffer).getUint32(0, false);
+    const payloadOffset = payloadLenOffset + 4;
+    const payloadBytes = bytes.slice(payloadOffset, payloadOffset + payloadLen);
+
+    return {
+        integrityGlyphs,
+        equationGlyph,
+        payloadBytes
+    };
+}
+
+async function generateDemoGvolx() {
+    const demoPlaintext = "SigilOS Initialized.";
+    const glyphs = encodeToGlyphs(demoPlaintext);
+    const eqGlyph = glyphEquation(glyphs);
+    const integrity = integrityVector(glyphs);
+
+    const encryptedBytes = await encryptPayload(demoPlaintext, eqGlyph, integrity);
+    return buildGvolx(integrity, eqGlyph, encryptedBytes);
+}
+
+log("AES + GVOLX ready.");
+</script>
+
+<script>
+// ============================================================
+// BLOCK 5: JS REHYDRATION
+// ============================================================
+
+async function loadGvolxFile(fileHandle) {
+    const file = await fileHandle.getFile();
+    const arrayBuffer = await file.arrayBuffer();
+    return new Uint8Array(arrayBuffer);
+}
+
+async function rehydrateFromGvolx(bytes) {
+    const parsed = parseGvolx(bytes);
+
+    const integrityGlyphs = parsed.integrityGlyphs;
+    const equationGlyph = parsed.equationGlyph;
+    const payloadBytes = parsed.payloadBytes;
+
+    const plaintext = await decryptPayload(
+        payloadBytes,
+        equationGlyph,
+        integrityGlyphs
+    );
+
+    const payloadGlyphs = encodeToGlyphs(plaintext);
+    const finalOutput = rehydratePayload(payloadGlyphs, equationGlyph);
+
+    return {
+        ok: true,
+        plaintext,
+        finalOutput,
+        integrityGlyphs,
+        equationGlyph
+    };
+}
+
+async function selectAndRehydrateGvolx() {
+    try {
+        log("Select a .gvolx volume...");
+        const [fileHandle] = await window.showOpenFilePicker({
+            types: [{
+                description: "GVOLX Volumes",
+                accept: { "application/octet-stream": [".gvolx"] }
+            }]
+        });
+
+        const bytes = await loadGvolxFile(fileHandle);
+
+        log("Rehydrating...");
+        const result = await rehydrateFromGvolx(bytes);
+
+        if (result.ok) {
+            log("SUCCESS:");
+            log("Plaintext: " + result.plaintext);
+            log("Final Output: " + result.finalOutput);
+        } else {
+            log("FAILED.");
+        }
+
+    } catch (err) {
+        log("Error: " + err.message);
+        return;
+    }
+}
+
+window.SigilRehydrator = {
+    fromBytes: async (bytes) => await rehydrateFromGvolx(bytes),
+    fromFile: async () => await selectAndRehydrateGvolx()
+};
+
+log("Rehydration ready.");
+</script>
+
+<script>
+// ============================================================
+// BLOCK 6: SIGIL-OS + PYTHON RUNTIME BOOTSTRAP
+// ============================================================
+
+const SIGIL_OS_ROOT = "SigilOS";
+const CORE_PATH = SIGIL_OS_ROOT + "/core";
+const BIN_PATH = SIGIL_OS_ROOT + "/bin";
+const DATA_PATH = SIGIL_OS_ROOT + "/data/volumes";
+const INSTALL_PATH = SIGIL_OS_ROOT + "/install";
+
+// ✅ NEW MODULE: sigil_equations.py (missing dependency fixed)
+const PY_SIGIL_EQUATIONS = `#!/usr/bin/env python3
+from glyph_equations import GlyphEquationEngine
+
+engine = GlyphEquationEngine()
+
+def encode(text):
+    return engine.encode(text)
+
+def decode(glyphs):
+    return engine.decode(glyphs)
+
+def equation(glyphs):
+    return engine.equation(glyphs)
+
+def integrity(glyphs):
+    return engine.integrity(glyphs)
+`;
+
+// ✅ EXISTING python modules unchanged except padding support
+const PY_GLYPH_EQUATIONS = `#!/usr/bin/env python3
+import string
+
+GLYPH_ALPHABET = {
+    "forward": [
+        ["<", ">"], ["=", "="], [">", "<"], ["@", "¬"],
+        ["Γ", "Ω"], ["Δ", "Σ"], ["Λ", "Π"], ["Ξ", "Ξ"],
+        ["Σ", "Δ"], ["Ω", "Γ"], ["Ω", "Γ"], ["Σ", "Δ"], ["Φ", "Φ"],
+        ["α", "ω"], ["β", "ψ"], ["γ", "χ"], ["δ", "φ"], ["ε", "υ"],
+        ["ζ", "τ"], ["η", "σ"], ["θ", "ρ"], ["ι", "π"], ["κ", "ν"],
+        ["λ", "μ"], ["μ", "λ"], ["ν", "κ"], ["π", "ι"], ["ρ", "θ"],
+        ["σ", "η"], ["τ", "ζ"], ["υ", "ε"], ["φ", "δ"], ["χ", "γ"],
+        ["ψ", "β"], ["ω", "α"], ["⇌", "⇔"], ["∂", "∇"], ["∈", "∉"],
+        ["∑", "∘"], ["√", "∞"], ["∧", "∨"], ["≠", "≤"], ["≥", "⊕"],
+        ["⊗", "⋅"], ["⌨", "⏩"], ["⏭", "⏳"], ["□", "◇"], ["♠", "♣"],
+        ["♥", "♦"], ["⚙", "⚙️"], ["⚠", "⚡"], ["✂️", "✏️"], ["✓", "⟂"],
+        ["⟳", "⤴"], ["⧈", "⧉"], ["⧊", "⨉"], ["⬛", "⮕"], ["🌍", "🌐"],
+        ["🌲", "🌳"], ["🎤", "🎧"], ["🎨", "🎮"], ["🎯", "🎰"], ["🎲", "🎵"],
+        ["🎼", "🏁"], ["🏆", "🏋"], ["👍", "👎"], ["💾", "📂"], ["📄", "📈"],
+        ["📉", "📊"], ["📍", "📏"], ["📐", "📑"], ["📖", "📝"], ["📡", "📢"],
+        ["📤", "📥"], ["📦", "🔀"], ["🔁", "🔇"], ["🔊", "🔍"], ["🔎", "🔑"],
+        ["🔒", "🔗"], ["🕒", "🕹"], ["🖌", "🖼"], ["🗑", "🗜"], ["🗝", "🙋"],
+        ["🛠", "🛰"], ["🟦", "🤔"], ["🤖", "🤝"], ["🧠", "🧩"], ["🧮", "🧳"],
+        ["🧵", "↕"]
+    ]
+}
+
+def get_sigil_block(index):
+    f = GLYPH_ALPHABET["forward"][index]
+    return [
+        [f[0], f[1]],
+        [f[1], f[0]]
+    ]
+
+class GlyphEquationEngine:
+    def __init__(self):
+        self.alphabet_len = len(GLYPH_ALPHABET["forward"])
+
+    def _glyph_to_index(self, glyph):
+        for i, pair in enumerate(GLYPH_ALPHABET["forward"]):
+            if glyph in pair:
+                return i
+        raise ValueError(f"Unknown glyph: {glyph}")
+
+    def encode(self, plaintext: str) -> str:
+        glyphs = ""
+        for char in plaintext:
+            code = ord(char)
+            index = code % self.alphabet_len
+            pair = GLYPH_ALPHABET["forward"][index]
+            glyph = pair[(code % 2)]
+            glyphs += glyph
+        return glyphs
+
+    def decode(self, glyphs: str) -> str:
+        out = ""
+        for g in glyphs:
+            index = self._glyph_to_index(g)
+            pair = GLYPH_ALPHABET["forward"][index]
+            pos = 0 if pair[0] == g else 1
+            code = (index + (pos * self.alphabet_len)) % 256
+            out += chr(code)
+        return out
+
+    def equation(self, glyphs: str) -> str:
+        sum_val = sum(self._glyph_to_index(g) for g in glyphs)
+        result_index = sum_val % self.alphabet_len
+        block = get_sigil_block(result_index)
+        return block[0][0]
+
+    def integrity(self, glyphs: str) -> str:
+        sum_val = sum(self._glyph_to_index(g) for g in glyphs)
+        base = sum_val % self.alphabet_len
+        block = get_sigil_block(base)
+        return "".join(block[0]) + "".join(block[1])
+`;
+
+const PY_SIGIL_REHYDRATOR = `#!/usr/bin/env python3
+import sys
+from sigil_gvolx import decode_gvolx
+from sigil_equations import encode, equation
+
+def rehydrate(volume_path):
+    try:
+        decrypted_payload = decode_gvolx(volume_path)
+    except Exception as e:
+        return f"REHYDRATION FAILED: {e}"
+
+    payload_glyphs = encode(decrypted_payload)
+    eq_sigil = equation(payload_glyphs)
+    
+    return decrypted_payload + eq_sigil
+`;
+
+const PY_SIGIL_GVOLX = `#!/usr/bin/env python3
+import struct
+from Crypto.Cipher import AES
+from Crypto.Hash import SHA256
+
+MAGIC = b"GVX01"
+VERSION = b"\\x01"
+
+def pkcs7_unpad(data):
+    pad_len = data[-1]
+    return data[:-pad_len]
+
+def sha256(data):
+    h = SHA256.new()
+    h.update(data)
+    return h.digest()
+
+def derive_key_iv(eq, integrity):
+    seed = (eq + integrity).encode("utf-8")
+    hash_bytes = sha256(seed)
+    key = hash_bytes[:32]
+    iv = hash_bytes[:16]
+    return key, iv
+
+def decode_gvolx(path):
+    with open(path, "rb") as f:
+        data = f.read()
+
+    if len(data) < 15 or data[:5] != MAGIC:
+        raise ValueError("Invalid GVOLX file")
+
+    integrity = data[6:10].decode("utf-8")
+    eq_len = data[10]
+    equation = data[11:11+eq_len].decode("utf-8")
+
+    payload_len_offset = 11 + eq_len
+    payload_len = struct.unpack(">I", data[payload_len_offset:payload_len_offset+4])[0]
+    payload_offset = payload_len_offset + 4
+    payload = data[payload_offset:payload_offset+payload_len]
+
+    key, iv = derive_key_iv(equation, integrity)
+
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    decrypted = cipher.decrypt(payload)
+
+    unpadded = pkcs7_unpad(decrypted)
+    return unpadded.decode("utf-8", errors="ignore")
+`;
+
+const PY_SIGIL_AGENT = `#!/usr/bin/env python3
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from sigil_rehydrator import rehydrate
+
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: sigilos <volume.gvolx>")
+        sys.exit(1)
+
+    volume_path = sys.argv[1]
+    
+    if not os.path.exists(volume_path):
+        print(f"Error: Volume not found: {volume_path}")
+        sys.exit(1)
+
+    print(f"[{os.path.basename(volume_path)}] Rehydrating...")
+    result = rehydrate(volume_path)
+    print(result)
+
+if __name__ == "__main__":
+    main()
+`;
+
+const SH_SETUP = `#!/data/data/com.termux/files/usr/bin/bash
+set -e
+
+BASE=~/SigilOS
+CORE_DIR=$BASE/core
+BIN_DIR=$BASE/bin
+
+echo "--- Sigil-OS Setup ---"
+mkdir -p $CORE_DIR
+mkdir -p $BIN_DIR
+mkdir -p $BASE/data/volumes
+
+if command -v pip &> /dev/null; then
+    echo "Installing pycryptodome..."
+    pip install pycryptodome || exit 1
+else
+    echo "ERROR: pip not found"
+    exit 1
+fi
+
+cat > $BIN_DIR/sigilos << 'EOF'
+#!/usr/bin/env bash
+python3 $CORE_DIR/sigil_agent.py "$@"
+EOF
+
+chmod +x $BIN_DIR/sigilos
+chmod +x $CORE_DIR/*.py
+
+echo "--- Installation Complete ---"
+echo "Run: sigilos <volume.gvolx>"
+`;
+
+async function deploySigilOSZeroTouch() {
+    log("Deploying Sigil-OS (Mode A)...");
+
+    await writeFileZeroTouch(CORE_PATH + "/glyph_equations.py", PY_GLYPH_EQUATIONS);
+    await writeFileZeroTouch(CORE_PATH + "/sigil_equations.py", PY_SIGIL_EQUATIONS);
+    await writeFileZeroTouch(CORE_PATH + "/sigil_rehydrator.py", PY_SIGIL_REHYDRATOR);
+    await writeFileZeroTouch(CORE_PATH + "/sigil_gvolx.py", PY_SIGIL_GVOLX);
+    await writeFileZeroTouch(CORE_PATH + "/sigil_agent.py", PY_SIGIL_AGENT);
+    await writeFileZeroTouch(INSTALL_PATH + "/setup.sh", SH_SETUP);
+
+    const cliScript = `#!/usr/bin/env bash
+python3 ~/SigilOS/core/sigil_agent.py "$@"`;
+    await writeFileZeroTouch(BIN_PATH + "/sigilos", cliScript);
+
+    const demoGvolxBytes = await generateDemoGvolx();
+    await writeFileZeroTouch(DATA_PATH + "/demo.gvolx", demoGvolxBytes);
+
+    log("Mode A deployment complete.");
+}
+
+function deploySigilOSFallback() {
+    log("Preparing Mode B fallback files...");
+
+    prepareFallbackFile(SIGIL_OS_ROOT + "/core/glyph_equations.py", PY_GLYPH_EQUATIONS);
+    prepareFallbackFile(SIGIL_OS_ROOT + "/core/sigil_equations.py", PY_SIGIL_EQUATIONS);
+    prepareFallbackFile(SIGIL_OS_ROOT + "/core/sigil_rehydrator.py", PY_SIGIL_REHYDRATOR);
+    prepareFallbackFile(SIGIL_OS_ROOT + "/core/sigil_gvolx.py", PY_SIGIL_GVOLX);
+    prepareFallbackFile(SIGIL_OS_ROOT + "/core/sigil_agent.py", PY_SIGIL_AGENT);
+    prepareFallbackFile(SIGIL_OS_ROOT + "/install/setup.sh", SH_SETUP);
+
+    log("Mode B fallback package ready.");
+}
+
+window.SigilOSBootstrap = {
+    modeA: deploySigilOSZeroTouch,
+    modeB: deploySigilOSFallback
+};
+
+log("Bootstrap ready.");
+</script>
+
+<script>
+// ============================================================
+// BLOCK 7: INSTALL ORCHESTRATION
+// ============================================================
+let installMode = null;
+
+async function runFullInstallation() {
+    log("Beginning deployment...");
+    document.getElementById("init").disabled = true;
+
+    installMode = await startInstallation();
+
+    if (installMode === "zerotouch") {
+        log("Executing Mode A...");
+        try {
+            await SigilOSBootstrap.modeA();
+            log("--- INSTALL COMPLETE ---");
+            log("CLI installed as: SigilOS/bin/sigilos");
+            log("Test volume: SigilOS/data/volumes/demo.gvolx");
+            enableRehydrationUI();
+        } catch (err) {
+            log("Mode A failed: " + err.message);
+            log("Switching to Mode B...");
+            SigilOSBootstrap.modeB();
+            await downloadFallbackFiles();
+        }
+    } else {
+        log("Executing Mode B...");
+        SigilOSBootstrap.modeB();
+        await downloadFallbackFiles();
+        log("--- INSTALL COMPLETE (Fallback) ---");
+    }
+
+    document.getElementById("init").disabled = false;
+}
+
+document.getElementById("init").onclick = async () => {
+    log("Initialization started...");
+    await runFullInstallation();
+};
+
+function enableRehydrationUI() {
+    const container = document.createElement("div");
+    const btn = document.createElement("button");
+    btn.textContent = "Rehydrate .gvolx (Browser)";
+    btn.onclick = async () => {
+        await selectAndRehydrateGvolx();
+    };
+    container.appendChild(btn);
+    document.body.appendChild(container);
+
+    log("Rehydration UI enabled.");
+}
+
+log("Installer ready.");
+</script>
+
+<script>
+// ============================================================
+// BLOCK 8: VOLUME BUILDER UI
+// ============================================================
+
+function addVolumeBuilderUI() {
+    const container = document.createElement("div");
+    container.style.marginTop = "20px";
+
+    const title = document.createElement("h3");
+    title.textContent = "Build .gvolx Volume";
+
+    const textarea = document.createElement("textarea");
+    textarea.rows = 6;
+    textarea.cols = 60;
+    textarea.style.background = "#111";
+    textarea.style.color = "#0f0";
+    textarea.style.border = "1px solid #0f0";
+    textarea.style.display = "block";
+    textarea.style.marginBottom = "10px";
+
+    const btn = document.createElement("button");
+    btn.textContent = "Build .gvolx";
+
+    btn.onclick = async () => {
+        const text = textarea.value || "";
+        if (!text) {
+            log("No plaintext entered.");
+            return;
+        }
+        try {
+            const glyphs = encodeToGlyphs(text);
+            const eqGlyph = glyphEquation(glyphs);
+            const integrity = integrityVector(glyphs);
+            const encrypted = await encryptPayload(text, eqGlyph, integrity);
+            const bytes = buildGvolx(integrity, eqGlyph, encrypted);
+
+            const blob = new Blob([bytes], { type: "application/octet-stream" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "volume.gvolx";
+            a.click();
+            URL.revokeObjectURL(url);
+            log("Built volume.gvolx");
+        } catch (err) {
+            log("Error: " + err.message);
+        }
+    };
+
+    container.appendChild(title);
+    container.appendChild(textarea);
+    container.appendChild(btn);
+    document.body.appendChild(container);
+}
+
+window.addEventListener("load", () => {
+    addVolumeBuilderUI();
+});
+</script>
+
 </body>
 </html>
